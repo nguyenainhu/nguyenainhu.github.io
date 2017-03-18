@@ -1,0 +1,95 @@
+
+.tab{
+	border-right: solid 1px white;
+	border-left: solid 1px white;
+	text-align: center;
+}
+.tab a{
+	color: white;
+	font-size: 1.3em;
+}
+#btnSub{
+	    margin-bottom: 14px;
+	    float: right;
+}
+.row{
+	margin-right: 0px;
+	
+}
+.imageLoad img{
+	width:100px;
+	height: 100px;
+}
+.removeImg{
+	position: relative;
+    top: -37px;
+	right: 26px;
+}
+.imageLoad{
+	display:inline;
+}
+#deleteTag{
+	margin: 0 auto;
+	width: 40%;
+	position: fixed;
+	z-index: 200;
+	top: 50%;
+    left: 35%;
+
+}
+
+.confirm{
+	float: right;
+}
+.navbar-default{
+	color: #ffffff;
+	background-color: #3b5998;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+body{
+	background-color: #e9ebee;
+}
+ .anhbia{
+ background: url(images/anhbia.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ padding-top: 200px;
+ color: white;
+margin-bottom:40px;
+ }
+.panel-default > .panel-heading{
+	background-color: white;
+	border-bottom: solid 1px #eee;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.picture{
+	margin:0 auto;
+}
+.user{
+	width: 40px;
+	height: 40px;
+	display:inline;
+	clear: right;
+}
+.stat{
+	padding:10px;
+}
+.stat a{
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 2em;
+}
+button.removeImg {
+    background-color: transparent;
+    border: none;
+}
+button.confirm {
+    background-color: transparent;
+    border: none;
+}
