@@ -1,0 +1,41 @@
+.navbar {
+	margin-bottom: 50px;
+     	border-radius: 0;
+}
+.background-footer {
+	background-color: black;
+	color:white;
+}
+.carousel-inner {
+	margin-top: -50px;
+}
+.timeline-area{
+	float: left;
+	width:100%;
+}
+.frame{
+	border: 10px solid #333b57;
+	-webkit-box-sizing: border-box;
+}
+.text-box h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    float: left;
+    padding-bottom: 25px;
+    width: 100%;
+}
+.section5{
+	background-color: #1e293d;
+}
+h4{
+	color: white;
+}
+p{
+	color:white;
+}
+.right-box img{
+	float: right;
+	border-radius: 5px;
+	margin-left: 10px;
+
+}
