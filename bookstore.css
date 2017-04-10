@@ -1,0 +1,186 @@
+.navbar {
+	margin-bottom: 50px;
+     	border-radius: 0;
+}
+
+.section-footer{
+	background-color: black;
+	color:white;
+}
+
+.container-fluid>.navbar-header{
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 60px;
+}
+
+.navbar-brand>img {
+    display: block;
+    margin-top: -14px;
+    width: 85%;
+}
+
+.logo-footer{
+	max-width: 100%;
+	height:auto;
+}
+
+.section1{
+	background-color: black;
+}
+
+.modal-content{
+	border-radius: 0;
+    	padding: 0 35px;
+    	width: 447px;
+	height: 370px;
+	background-color: white;
+	border:1px solid ;
+}
+.modal-header{
+	border: 0;
+	padding: 20px 0;
+}
+.modal-header h3 {
+	font-size: 20px;
+    	margin: 0 0 20px 0;
+    	float: left;
+    	text-transform: uppercase;
+}
+button.close{
+	background: black;
+	width: 26px;
+	height: 26px;
+}
+span{
+	border: 0;
+	color:white;
+	text-align: center;
+}
+.modal-body{
+	padding: 0px;
+}
+.modal-body form label{
+	display: block;
+   	color: #8e8e8e;
+    	padding: 0 0 15px 0;
+}
+.modal-content .style-input{
+	float: left;
+    	width: 100%;
+    	height: 50px;
+    	border: 1px solid #f0f0f0;
+    	border-radius: 3px;
+    	padding: 0 18px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    	color: #bfbfbf;
+    	margin: -25px 0 15px 0;
+}
+.login{
+	float: left;
+    	width: 100%;
+    	height: 58px;
+    	background-color: #161d56;
+    	color: #fff;
+    	text-transform: uppercase;
+    	border: 0;
+    	border-radius: 3px;
+}
+.best-seller{
+	background-color: white;
+    	float: left;
+    	width: 100%;
+    	padding: 10px 0;
+}
+.heading-1 h2{
+	text-align: center;
+
+}
+
+.gallery-title
+{
+    font-size: 36px;
+    color: #42B32F;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
+.gallery-title:after {
+    content: "";
+    position: absolute;
+    width: 7.5%;
+    left: 46.5%;
+    height: 45px;
+    border-bottom: 1px solid #5e5e5e;
+}
+.filter-button
+{
+    font-size: 18px;
+    border: 1px solid #42B32F;
+    border-radius: 5px;
+    text-align: center;
+    color: #42B32F;
+    margin-bottom: 30px;
+    background-color: white;
+
+}
+.filter-button:hover
+{
+    font-size: 18px;
+    border: 1px solid #42B32F;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #42B32F;
+
+}
+.filter-button.active
+{
+    background-color: #42B32F;
+    color: white;
+}
+.port-image
+{
+    width: 100%;
+}
+
+.gallery_product
+{
+    margin-bottom: 30px;
+}
+.text-book{
+    text-align: center;
+    border-top: 1px solid black;
+    margin-top: 10px;
+}
+.carousel {
+    margin-bottom: 0; 
+    padding: 0 40px 30px 40px;
+} /* Reposition the controls slightly */ 
+.carousel-control { 
+    left: -12px; 
+} 
+.carousel-control.right {
+    right: -12px; 
+} /* Changes the position of the indicators */ 
+.carousel-indicators { 
+    right: 50%; 
+    top: auto; 
+    bottom: 0px; 
+    margin-right: -19px; 
+} /* Changes the colour of the indicators */ 
+.carousel-indicators li { 
+    background: #c0c0c0; 
+} 
+.carousel-indicators .active { 
+    background: #333333; 
+}
+.featured-book{
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 70px;
+}
