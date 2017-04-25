@@ -14,64 +14,118 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="route.js"></script>
+    <script src="ControllerBook.js"></script>
+
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-controller="bookController">
     <nav class="navbar navbar-inverse">
-        <div class="container-fluid section1">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				          	<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span> 
 		      		</button>
-                <a class="navbar-brand" href="#"><img src="images/logo.png">Logo</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#/">Home</a></li>
-                    <li><a href="#allbook">All Book</a></li>
-                    <li><a href="#admin">Admin</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-                </ul>
+                    <a class="navbar-brand" href="#">Logo</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#allbook">ALL BOOKS</a></li>
+                        <li><a href="#admin">ADMIN</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control search-text" placeholder="Search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li data-toggle="modal" data-target="#myModal"><a href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="glyphicon glyphicon-shopping-cart"></span> CART <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-cart ">
+                                <li>
+                                    <span class="item">
+                                           <span class="item-left">
+                                               <img src="http://lorempixel.com/50/50/" alt="">
+                                               <span class="item-info">
+                                                   <span>Item name</span>
+                                    <span>23$</span>
+                                    </span>
+                                    </span>
+                                    <span class="item-right">
+                                             <button class="btn btn-xs btn danger pull-right">x</button>
+                                </span>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="item">
+                                           <span class="item-left">
+                                               <img src="http://lorempixel.com/50/50/" alt="">
+                                               <span class="item-info">
+                                                   <span>Item name</span>
+                                    <span>23$</span>
+                                    </span>
+                                    </span>
+                                    <span class="item-right">
+                                             <button class="btn btn-xs btn danger pull-right">x</button>
+                                </span>
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="item">
+                                           <span class="item-left">
+                                               <img src="http://lorempixel.com/50/50/" alt="">
+                                               <span class="item-info">
+                                                   <span>Item name</span>
+                                    <span>23$</span>
+                                    </span>
+                                    </span>
+                                    <span class="item-right">
+                                             <button class="btn btn-xs btn danger pull-right">x</button>
+                                </span>
+                                    </span>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a class="text-center" href="">View Cart</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
+    <div ng-view></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
                 <div class="section-header">CATEGORY</div>
                 <div class="section-body">
                     <div class="panel-body">
-                        <ul class="nav nav-pills nav-pills-danger nav-stacked">
-                            <li><a href="#"> NOVEL</a> </li>
-                            <li class="active"><a href="#">KIDS BOOK</a></li>
-                            <li><a href="#"> NATURE </a></li>
-                            <li><a href="#"> EDUCATION </a></li>
-                            <li><a href="#"> MAGAZINES </a></li>
+                        <ul class="nav">
+                            <li><a href="#"> Novel</a> </li>
+                            <li class="active"><a href="#">Kid Books</a></li>
+                            <li><a href="#"> Nature </a></li>
+                            <li><a href="#"> Education </a></li>
+                            <li><a href="#"> Magazines </a></li>
                         </ul>
                     </div>
                 </div>
                 </br>
-                <div class="section-header">AUTHOR</div>
-                <div class="section-body">
-                    <div class="panel-body">
-                        <ul class="nav nav-pills nav-pills-danger nav-stacked">
-                            <li><a href="#"> NOVEL</a> </li>
-                            <li><a href="#">KIDS BOOK</a></li>
-                            <li><a href="#"> NATURE </a></li>
-                            <li><a href="#"> EDUCATION </a></li>
-                            <li><a href="#"> MAGAZINES </a></li>
-                            <li><a href="#"> NOVEL</a> </li>
-                            <li><a href="#">KIDS BOOK</a></li>
-                            <li><a href="#"> NATURE </a></li>
-                            <li><a href="#"> EDUCATION </a></li>
-                            <li><a href="#"> MAGAZINES </a></li>
-                        </ul>
+                <div ng-show="myGenre.length>0">
+                    <div class="section-header">AUTHOR</div>
+                    <div class="section-body">
+                        <div class="panel-body">
+                            <ul ng-repeat="genre in myGenre" class="nav">
+                                <li><a href="#">{{genre.name}}</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,302 +134,99 @@
                     <a href="#"><img src="http://2.bp.blogspot.com/-dfhykI3bhNE/Ut5oSVCb-HI/AAAAAAAAAEw/tky_zpHVWho/s1600/banner-book-shelf.png" class="img-responsive"></a>
                 </div>
                 </br>
-                <div class="timeline">
+                <div class="timeline" ng-show="myBook.length>0">
                     <div class="section-header text-center">
                         <div><span class="glyphicon glyphicon-heart"></span> BEST SELLER BOOK <span class="glyphicon glyphicon-heart"></span></div>
                     </div>
-                    <div>
-                        <div class="row box-seller">
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/6/1/61xgdlecz5l-_sx422_bo1-204-203-200_.u2469.d20161219.t143215.65042.jpg" class="img-responsive" alt="Product Image" /> </a>
+                    <div class="section-body">
+                        <div class=" row section-body box-seller">
+                            </br>
+                            <div ng-repeat=" book in myBook " class="col-sm-6 col-md-3 col-xs-12 ">
+                                <article class="col-item ">
+                                    <div class="photo ">
+                                        <a href="# "> <img ng-src={{book.images.main}} class="img-responsive " alt="Product Image " /> </a>
                                     </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
+                                    <div class="info ">
+                                        <div class="row ">
+                                            <div class="price-details col-md-6 ">
+                                                <p class="details ">
+                                                    {{book.author}}
                                                 </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
+                                                <h1>{{book.title}}</h1>
+                                                <span class="price-new ">{{book.sellingPrice}}VNĐ</span>
                                             </div>
                                         </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
+                                        <div class="separator clear-left ">
+                                            <p class="btn-add ">
+                                                <a href="# " class="hidden-sm "><i class="glyphicon glyphicon-shopping-cart "></i></a>
                                             </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/d/u/dung-noi.u2470.d20170310.t161545.574146.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
+                                            <p class="btn-details ">
+                                                <a href="# " class="hidden-sm " data-toggle="tooltip " data-placement="top " title="Add to wish list "><i class="glyphicon glyphicon-heart "></i></a>
+                                                <a href="# " class="hidden-sm " data-toggle="tooltip " data-placement="top " title="Compare "><i class="glyphicon glyphicon-exchange "></i></a>
                                             </p>
                                         </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/n/x/nxbtre_full_09282017_032812.u2751.d20170314.t145802.326985_1.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/n/h/nhung-lan-ta-chia-tay-01.u4939.d20170315.t115657.75824.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/d/u/dung-noi.u2470.d20170310.t161545.574146.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/n/x/nxbtre_full_09282017_032812.u2751.d20170314.t145802.326985_1.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/n/x/nxbtre_full_09282017_032812.u2751.d20170314.t145802.326985_1.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <article class="col-item">
-                                    <div class="photo">
-                                        <a href="#"> <img src="https://vcdn.tikicdn.com/cache/175x175/media/catalog/product/n/x/nxbtre_full_09282017_032812.u2751.d20170314.t145802.326985_1.jpg" class="img-responsive" alt="Product Image" /> </a>
-                                    </div>
-                                    <div class="info">
-                                        <div class="row">
-                                            <div class="price-details col-md-6">
-                                                <p class="details">
-                                                    Lorem ipsum dolor sit amet, consectetur..
-                                                </p>
-                                                <h1>Sample Product</h1>
-                                                <span class="price-new">$110.00</span>
-                                            </div>
-                                        </div>
-                                        <div class="separator clear-left">
-                                            <p class="btn-add">
-                                                <i class="glyphicon glyphicon-shopping-cart"></i><a href="#" class="hidden-sm">Add to cart</a>
-                                            </p>
-                                            <p class="btn-details">
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Add to wish list"><i class="glyphicon glyphicon-heart"></i></a>
-                                                <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Compare"><i class="glyphicon glyphicon-exchange"></i></a>
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
+                                        <div class="clearfix "></div>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                <!-- <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-12 filter novel">
-                                      <img src="http://techlinqs.com/wp-demo/ebooks/wp-content/uploads/2016/08/book-7-385x545.jpg" class="img-responsive">
-                                      <div class="text-book">
-                                      <h4><a href="" class="title">Slow Travel</a></h4>
-                                      <p class="author">Thomas</p>
-                                      <p class="price">280.99$</p>
-                                      </div>
-                                </div> -->
             </div>
         </div>
         </br>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-xs-12">
-                <a href="#">
-                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-04-2017/tamhoncaothuong-570-1_4.jpg" class="img-responsive"></a>
+    <div class="container ">
+        <div class="row ">
+            <div class="col-sm-6 col-md-6 col-xs-12 ">
+                <a href="# ">
+                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-04-2017/tamhoncaothuong-570-1_4.jpg " class="img-responsive "></a>
             </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <a href="#">
-                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-03-2017/DoChoi1-270.jpg" class="img-responsive"></a>
+            <div class="col-sm-3 col-md-3 col-xs-12 ">
+                <a href="# ">
+                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-03-2017/DoChoi1-270.jpg " class="img-responsive "></a>
             </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <a href="#">
-                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-04-2017/sgk-270.jpg" class="img-responsive"></a>
+            <div class="col-sm-3 col-md-3 col-xs-12 ">
+                <a href="# ">
+                    <img src="https://www.fahasa.com/media/wysiwyg/banner/thang-04-2017/sgk-270.jpg " class="img-responsive "></a>
             </div>
         </div>
     </div>
     </br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="section-header">
-                    Favorite Authors
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-12 col-md-12 col-sm-12 ">
+                <div class="section-header ">
+                    FAVOURITE AUTHOR
                 </div>
             </div>
         </div>
     </div>
     </br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-0 " style="float:right;">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-0 " style="float:right; ">
                 <div>
-                    <a href="#">
-                        <img src="https://www.fahasa.com/media/wysiwyg/ngoai-van/MARCH/game-350x390.jpg" alt="" class="img-responsive"></a>
+                    <a href="# ">
+                        <img src="https://www.fahasa.com/media/wysiwyg/ngoai-van/MARCH/game-350x390.jpg " alt=" " class="img-responsive "></a>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+            <div class="col-lg-8 col-md-8 col-sm-12 ">
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -383,21 +234,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -407,22 +258,22 @@
                     </div>
                 </div>
                 </br>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -430,21 +281,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -457,41 +308,41 @@
         </div>
     </div>
     </br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="section-header">
-                    Favorite Authors
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-12 col-md-12 col-sm-12 ">
+                <div class="section-header ">
+                    FAVOURITE AUTHOR
                 </div>
             </div>
         </div>
     </div>
     </br>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-0 " style="float:left;">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-lg-4 col-md-4 col-sm-0 " style="float:left; ">
                 <div>
-                    <a href="#">
-                        <img src="https://www.fahasa.com/media/wysiwyg/ngoai-van/MARCH/game-350x390.jpg" alt="" class="img-responsive"></a>
+                    <a href="# ">
+                        <img src="https://www.fahasa.com/media/wysiwyg/ngoai-van/MARCH/game-350x390.jpg " alt=" " class="img-responsive "></a>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+            <div class="col-lg-8 col-md-8 col-sm-12 ">
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -499,21 +350,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -523,22 +374,22 @@
                     </div>
                 </div>
                 </br>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                <div class="row ">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -546,21 +397,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 product">
-                                <a href="#"><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg"></a>
+                    <div class="col-lg-6 col-md-6 col-sm-12 ">
+                        <div class="row ">
+                            <div class="col-lg-6 col-md-6 col-sm-6 product ">
+                                <a href="# "><img src="https://www.fahasa.com/media/catalog/product/cache/1/small_image/270x364/9df78eab33525d08d6e5fb8d27136e95/9/7/9780552172134.jpg "></a>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="rating">
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
-                                    <i class="glyphicon glyphicon-star"></i>
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <div class="rating ">
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
+                                    <i class="glyphicon glyphicon-star "></i>
                                 </div>
                                 <h4>Dan Brown</h4>
-                                <div class="product-price">
+                                <div class="product-price ">
                                     <p>$ 125</p>
                                 </div>
                                 </br>
@@ -573,20 +424,52 @@
         </div>
     </div>
     </br>
-    <div ng-view></div>
-    <footer class="container-fluid section-footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4">
+
+    <div class="modal fade " id="myModal " role="dialog ">
+        <div class="modal-dialog modal-sm ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h3>LOGIN</h3>
+                    <button class="close " type="button "><span>x</span></button>
+                </div>
+                <div class="modal-body ">
+                    <form id="login " action="login " method="post ">
+                        <div class="outer-input ">
+                            <label>
+						<i class="glyphicon glyphicon-user "></i>
+						User Name
+					</label></br>
+                            <input class="style-input " type="text " id="username " name="username " placeholder="Nguyen Ai Nhu ">
+                        </div>
+                        <div class="outer-input ">
+                            <label>
+						<i class="glyphicon glyphicon-lock "></i>
+						Password
+					</label></br>
+                            <input class="style-input " type="password " id="password " name="password " placeholder="..... ">
+                        </div>
+                        <input class="login " type="submit " value="Login account ">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="container-fluid section-footer ">
+        <div class="container-fluid ">
+            <div class="row ">
+                <div class="col-sm-4 ">
                     <div>
-                        <a href="#"><img src="http://techlinqs.com/wp-demo/ebooks/wp-content/uploads/2016/08/logo-2-1.png" width="182" height="62" class="logo-footer"></a>
+                        <a href="# "><img src="http://techlinqs.com/wp-demo/ebooks/wp-content/uploads/2016/08/logo-2-1.png " width="182 " height="62 " class="logo-footer "></a>
                         <p>Find out how to prepare your book for an editor with these 4 writing tips! The editing process can be a wonderful opportunity for writers.</p>
-                        <span><i class="glyphicon glyphicon-home"></i> 888 South Avenue Street, New York City.</span></br>
-                        <span><i class="glyphicon glyphicon-phone"></i> +86-98 5352 687</span></br>
-                        <span><i class="glyphicon glyphicon-envelope"></i><a href="ainhu8596@gmail.com"> ainhu8596@gmail.com</a></span>
+                        <span><i class="glyphicon glyphicon-home "></i> 888 South Avenue Street, New York City.</span></br>
+                        <span><i class="glyphicon glyphicon-phone "></i> +86-98 5352 687</span></br>
+                        <span><i class="glyphicon glyphicon-envelope "></i><a href="ainhu8596@gmail.com "> ainhu8596@gmail.com</a></span>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 ">
                     <div>
                         <h4>INFORMATION</h4>
                         <p>About us</p>
@@ -597,30 +480,30 @@
                         <p>Order or Return</p>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 ">
                     <div>
                         <h4>NEWSLETTER</h4>
-                        <input type="text" class="form-control" placeholder="Your email"></br>
-                        <button class="btn btn-danger" type="button">Submit</button>
+                        <input type="text " class="form-control " placeholder="Your email "></br>
+                        <button class="btn btn-danger " type="button ">Submit</button>
                         <h4>FOLLOW US</h4>
-                        <button class="btn btn-default btn-just-icon">
-						<a href=""><i class="fa fa-twitter"></i></a>
+                        <button class="btn btn-default btn-just-icon ">
+						<a href=" "><i class="fa fa-twitter "></i></a>
 					</button>
-                        <button class="btn btn-default btn-just-icon">
-						<a href=""><i class="fa fa-facebook-square"></i></a>
+                        <button class="btn btn-default btn-just-icon ">
+						<a href=" "><i class="fa fa-facebook-square "></i></a>
 					</button>
-                        <button class="btn btn-default btn-just-icon">
-						<a href=""><i class="fa fa-instagram"></i></a>
+                        <button class="btn btn-default btn-just-icon ">
+						<a href=" "><i class="fa fa-instagram "></i></a>
 					</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-fluid text-center">
-            © 2017 Copyright: <a href="#"> Bookstore.com </a>
+        <div class="container-fluid text-center ">
+            © 2017 Copyright: <a href="# "> Bookstore.com </a>
 
         </div>
     </footer>
-    </script>
+
 
 </body>
