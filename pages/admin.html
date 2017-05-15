@@ -1,0 +1,125 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <i class="glyphicon glyphicon-wrench pull-right"></i>
+            <h4>Upload Books</h4>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        <form name="addForm" class="form form-vertical" ng-submit="addBook()">
+            <div class="control-group">
+                <label>Title</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.title" ng-required="true" placeholder="Enter Title" name="title">
+                    <p ng-show="addForm.title.$invalid && !addForm.title.$pristine" class="text-danger">Xin vui lòng điền tiêu đề</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Author</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.author" ng-required="true" placeholder="by Jamel" name="author">
+                    <p ng-show="addForm.author.$invalid && !addForm.author.$pristine" class="text-danger">Xin vui lòng điền tác giả</p>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Publisher</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.publisher" placeholder="publisher">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Pages</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.pages" placeholder="Pages">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Weight</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Width</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Depth</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Release Date</label>
+                <div class="controls">
+                    <input type="datetime" class="form-control" ng-model="book.releaseDate" placeholder="Release Date">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Short Description</label>
+                <div class="controls">
+                    <textarea class="form-control" ng-model="book.shortDescription" placeholder="Short Description"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Full Description</label>
+                <div class="controls">
+                    <textarea class="form-control" ng-model="book.fullDescription" placeholder="Full Description"></textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Main Image</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.images.main" placeholder="Main Image">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>First Image</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.images.first" placeholder="Frist Image">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Second Image</label>
+                <div class="controls">
+                    <input type="text" class="form-control" ng-model="book.images.second" placeholder="Second Image">
+                </div>
+            </div>
+            <div class="control-group" ng-init="getGenres()">
+                <label>Genre</label>
+                <div class="controls">
+                    <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres">
+                          <!--<option ng-repeat="genre in genres" value="{{genre._id}}">{{genre.name}}</option>-->
+                        </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Revious Price </label>
+                <div class="controls">
+                    <input type="number" class="form-control" ng-model="book.reviousPrice" placeholder="Revious Price">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Selling Price</label>
+                <div class="controls">
+                    <input type="number" class="form-control" ng-model="book.sellingPrice" placeholder="Selling Price">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Create Date</label>
+                <div class="controls">
+                    <input type="datetime" class="form-control" ng-model="CreateDate" placeholder="Crea Date">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default" ng-disabled="postForm.$invalid">Submit</button>
+        </form>
+
+
+    </div>
+    <!--/panel content-->
+</div>
+</div>
+<!--/panel-->

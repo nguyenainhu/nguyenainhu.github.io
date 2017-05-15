@@ -1,0 +1,52 @@
+<div class="container pageAc">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel-profile">
+            </div>
+            <div class="section-body">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li><a href="#/customer/account/edit">Thông tin tài khoản</a></li>
+                        <li><a href="#/sales/order">Quản lý đơn hàng</a></li>
+                        <li><a href="#/customer/wishlist">Sản phẩm yêu thích</a></li>
+                        <li><a href="">Thoát tài khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="section-header">
+                <div>Quản lý đơn hàng</div>
+            </div>
+            <div class="section-body">
+                <table class="table table-bordered table-hover text-center ">
+                    <thead>
+                        <tr>
+                            <th class="hidden-xs"></th>
+                            <th class=" ">Tên sản phẩm</th>
+                            <th class="">Đơn giá</th>
+                            <th class="">Số lượng</th>
+                            <th class="">Thành tiền</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in cart">
+                            <td class="hidden-xs">
+                                <div class="imgItem"><img ng-src="{{item.item.images.main}}" alt="" class="img-responsive hidden-xs" /></div>
+                            </td>
+                            <td class="">
+                                <h6>{{item.item.title}}</h6>
+                            </td>
+                            <td class="price ">{{item.item.sellingPrice}}</td>
+                            <td class=""><input type="number" ng-model="item.qty" min="1" class="form-control"></td>
+                            <td class="price ">{{item.item.sellingPrice*item.qty| number:2}}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

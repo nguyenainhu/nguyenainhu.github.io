@@ -1,0 +1,81 @@
+<div class="container pageAc">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="panel-profile">
+            </div>
+            <div class="section-body">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li><a href="#/customer/account/edit">Thông tin tài khoản</a></li>
+                        <li><a href="#/sales/order">Quản lý đơn hàng</a></li>
+                        <li><a href="#/customer/wishlist">Sản phẩm yêu thích</a></li>
+                        <li><a href="">Thoát tài khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="section-header">
+                <div>Thông tin tài khoản</div>
+            </div>
+            <div class="section-body">
+                <form name="acEdit" class="form form-vertical" ng-submit="">
+                    <div class="control-group">
+                        <label class="profile-title">Họ tên:</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="users.userName" ng-required="true" placeholder="Enter Title" name="title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Email:</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="users.userEmail" ng-required="true" placeholder="Enter Title" name="title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Giới tính</label>
+                        <div class="controls">
+                            <input type="radio" name="users" value="Nữ" ng-model="users.userSex" /><span> Nữ</span>
+                            <input type="radio" name="users" value="Nam" ng-model="users.userSex" /><span> Nam</span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Địa chỉ:</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="users.userHome" ng-required="true" placeholder="Enter Title" name="title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Số điện thoại:</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="users.userPhone" ng-required="true" name="users">
+                        </div>
+                    </div>
+                    <label class="profile-title"><input type="checkbox" ng-model="checked">  Thay đổi mật khẩu</label>
+                    <div ng-show="checked">
+                        <div class="control-group">
+                            <label class="profile-title">Mật khẩu cũ:</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="profile-title">Mật khẩu mới:</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="profile-title">Nhập lại</label>
+                            <div class="controls">
+                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                            </div>
+                        </div>
+                    </div>
+                    </br>
+                    <button type="submit" class="btn btn-danger">Cập nhật</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
