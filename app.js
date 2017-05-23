@@ -1,19 +1,19 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'textAngular', 'ui.bootstrap', 'ngAnimate', 'ngCookies']);
 myApp.config(function($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'pages/home.html',
             controller: 'bookCtrl'
         })
-        .when('/admin', {
-            templateUrl: 'pages/admin.html',
+        .when('/addbook', {
+            templateUrl: 'pages/addbook.html',
             controller: 'bookCtrl'
         })
         .when('/books/detail/:id', {
             controller: 'bookCtrl',
             templateUrl: 'pages/detail.html'
         })
-        .when('/books/search/:text', {
+        .when('/search/:keyword', {
             controller: 'bookCtrl',
             templateUrl: 'pages/search.html'
         })
@@ -21,7 +21,7 @@ myApp.config(function($routeProvider) {
             controller: 'bookCtrl',
             templateUrl: 'pages/genre.html'
         })
-        .when('/admin/listbook', {
+        .when('/admin', {
             controller: 'bookCtrl',
             templateUrl: 'pages/listbook.html'
         })
@@ -44,6 +44,10 @@ myApp.config(function($routeProvider) {
         .when('/customer/wishlist', {
             controller: 'bookCtrl',
             templateUrl: 'pages/wishlist.html'
+        })
+        .when('/admin/addbook', {
+            controller: 'bookCtrl',
+            templateUrl: 'pages/addbook.html'
         })
         .otherwise({
             templateUrl: 'pages/home.html'

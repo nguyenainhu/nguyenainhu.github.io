@@ -1,4 +1,4 @@
-<div class="container" ng-controller="bookCtrl">
+<div class="container pageAc" ng-controller="bookCtrl">
     <div class="row">
         <div class="col-sm-3">
             <div ng-show="genres.length>0">
@@ -14,8 +14,9 @@
         </div>
         <div class="col-sm-9" ng-init='getBookByGenre()'>
             <div class="timeline" ng-show="books.length>0">
-                <div class="section-header text-center">
-                    <div><span class="glyphicon glyphicon-heart"></span>{{books[0].genre.name}} <span class="glyphicon glyphicon-heart"></span></div>
+                <div class="section-header">
+                    <div>{{books[0].genre.name}} </span>
+                    </div>
                 </div>
                 <div class="section-body">
                     <div class="row section-body box-product">

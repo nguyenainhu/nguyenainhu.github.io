@@ -6,6 +6,8 @@
 body {
     background-color: #ebddc3;
     font-family: UTMAVO;
+    overflow-y: scroll;
+    padding-right: 0px;
 }
 
 .navbar {
@@ -286,7 +288,8 @@ ul.dropdown-user li .item {
 }
 
 .img-responsive {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%
 }
 
 .panel-footer {
@@ -297,8 +300,8 @@ ul.dropdown-user li .item {
 }
 
 .book-thumbnail {
-    max-width: 150px;
-    max-height: 215px;
+    width: 150px;
+    height: 215px;
 }
 
 .panel {
@@ -373,13 +376,6 @@ img {
     animation-name: opacity;
     -webkit-animation-duration: .3s;
     animation-duration: .3s;
-}
-
-.card {
-    margin-top: 50px;
-    background: #eee;
-    padding: 3em;
-    line-height: 1.5em;
 }
 
 @media screen and (min-width: 997px) {
@@ -785,7 +781,75 @@ input[type=submit] {
 
 /*Wishlist*/
 
-.wishItem {
-    background-color: white;
-    margin: 15px;
+
+/*listbook*/
+
+.list-title {
+    color: white;
+    font-weight: 400;
+}
+
+.card {
+    /*padding: 3em;*/
+    line-height: 1.5em;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: #50597B;
+}
+
+
+/*detail*/
+
+.picture {
+    padding: 1em;
+}
+
+.detail-title {
+    color: white;
+    font-weight: 550;
+}
+
+.detail-author {
+    color: white;
+    font-size: 14px;
+}
+
+.detail-price {}
+
+
+/*paging*/
+
+.paging {
+    float: right;
+    margin-right: 12px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/*modal-delete*/
+
+.delete-confirm {
+    width: 400px;
+    height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.delete-title {
+    font-weight: bold;
+}
+
+.modal-backdrop.in {
+    display: none
+}
+
+div#modalSingin {
+    overflow-y: auto;
+}
+
+body.ng-scope.modal-open {
+    overflow: auto;
 }

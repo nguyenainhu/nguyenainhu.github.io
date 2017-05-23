@@ -1,4 +1,4 @@
-<div class="container" ng-controller="bookCtrl" ng-init="getBooks()">
+<div class="container pageAc" ng-controller="bookCtrl" ng-init="getBooks()">
     <div class="row">
         <div class="col-sm-3">
             <div ng-show="genres.length>0">
@@ -13,22 +13,27 @@
             </div>
         </div>
         <div class="col-sm-9">
-            <div class="banner">
-                <a href="#"><img src="http://2.bp.blogspot.com/-dfhykI3bhNE/Ut5oSVCb-HI/AAAAAAAAAEw/tky_zpHVWho/s1600/banner-book-shelf.png" class="img-responsive"></a>
-            </div>
-            </br>
-            <div class="timeline" ng-show="books.length>0">
-                <div class="section-header">
-                    <div>SÁCH BÁN CHẠY</div>
+            <div>
+                <div style="height: 305px" ng-init="getBanner()">
+                    <div uib-carousel active="active" interval="myInterval">
+                        <div uib-slide ng-repeat="slide in banner" index="$index">
+                            <img ng-src="{{slide.imageUrl}}" style="margin:auto;">
+
+                        </div>
+                    </div>
                 </div>
-                <div class="section-body">
-                    <div class="row section-body box-product">
-                        </br>
-                        <div class="row">
-                            <div ng-repeat="book in books" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                </br>
+                <div class="timeline" ng-show="books.length>0">
+                    <div class="section-header">
+                        <div>SÁCH BÁN CHẠY</div>
+                    </div>
+                    <div class="section-body">
+                        <div class="row section-body box-product">
+                            </br>
+                            <div ng-repeat="book in filteredBooks" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                                 <div class="panel">
                                     <div class="panel-body">
-                                        <a href="#/books/detail/{{book._id}}" title="{{book.shortDescription}}"><img ng-src="{{book.images.main}}" class="img-responsive book-thumbnail"></a>
+                                        <a href="#/books/detail/{{book._id}}"><img ng-src="{{book.images.main}}" class="book-thumbnail"></a>
                                         <br>
                                         <div class="book-name"><a href="#/books/detail/{{book._id}}"><strong>{{book.title}}</strong></a></div>
                                         <p class="pre-price"><strong>{{book.previousPrice|number}} đ</strong></p>
@@ -47,11 +52,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div>
+                                <ul uib-pagination total-items="totalItems" class="paging" ng-model="currentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-sm" boundary-links="true" force-ellipses="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="Đầu"
+                                    last-text="Cuối" num-pages="numPages"></ul>
+                            </div>
                         </div>
                     </div>
+                    <!--<div class="col-sm-12">
+                        <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" items-per-page="itemsPerPage" class="pagination-sm" boundary-links="true" force-ellipses="true" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="Đầu" last-text="Cuối"
+                            num-pages="numPages"></ul>
+                    </div>-->
                 </div>
             </div>
         </div>
+        </br>
     </div>
-    </br>
-</div>

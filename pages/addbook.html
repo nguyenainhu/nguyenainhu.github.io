@@ -15,10 +15,10 @@
         </div>
         <div class="col-sm-9">
             <div class="section-header">
-                <div>Chỉnh sửa sách</div>
+                <div>Thêm sách</div>
             </div>
             <div class="section-body">
-                <form name="addBook" class="form form-vertical" ng-submit="updateBook()" ng-init="getBook()">
+                <form name="addForm" class="form form-vertical" ng-submit="addBook()">
                     <div class="control-group">
                         <label class="profile-title">Tên sách</label>
                         <div class="controls">
@@ -46,39 +46,40 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Trọng lượng</label>
+                        <label class="profile-title">Khối lượng (g)</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="book.weight" placeholder="Weight">
+                            <input type="text" class="form-control" ng-model="book.weight">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Width</label>
+                        <label class="profile-title">Chiều ngang (mm)</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="book.size.width" placeholder="Width">
+                            <input type="text" class="form-control" ng-model="book.size.width">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Depth</label>
+                        <label class="profile-title">Chiều dọc (mm)</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="book.size.depth" placeholder="Depth">
+                            <input type="text" class="form-control" ng-model="book.size.depth">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Release Date</label>
+                        <label class="profile-title">Mã SKU</label>
                         <div class="controls">
-                            <input type="datetime" class="form-control" ng-model="book.releaseDate" placeholder="Release Date">
+                            <input type="text" class="form-control" ng-model="book.sku" ng-required="true" placeholder="Mã SKU" name="sku">
+                            <p ng-show="addForm.sku.$invalid && !addForm.sku.$pristine" class="text-danger"> Chưa điền mã Sku</p>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="profile-title">Mô tả ngắn</label>
                         <div class="controls">
-                            <textarea class="form-control" ng-model="book.shortDescription" placeholder="Short Description"></textarea>
+                            <div text-angular ng-model="book.shortDescription"></div>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="profile-title">Mô tả chi tiết</label>
                         <div class="controls">
-                            <textarea class="form-control" ng-model="book.fullDescription" placeholder="Full Description"></textarea>
+                            <div text-angular ng-model="book.fullDescription"></div>
                         </div>
                     </div>
                     <div class="control-group">
@@ -108,24 +109,37 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Revious Price </label>
+                        <label class="profile-title">Giá gốc </label>
                         <div class="controls">
-                            <input type="number" class="form-control" ng-model="book.reviousPrice" placeholder="Revious Price">
+                            <input type="number" class="form-control" ng-model="book.reviousPrice" min="0" placeholder="Giá gốc">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Selling Price</label>
+                        <label class="profile-title">Giá đã giảm</label>
                         <div class="controls">
-                            <input type="number" class="form-control" ng-model="book.sellingPrice" placeholder="Selling Price">
+                            <input type="number" class="form-control" ng-model="book.sellingPrice" min="0" placeholder="Giá đã giảm">
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Create Date</label>
-                        <div class="controls">
-                            <input type="datetime" class="form-control" ng-model="CreateDate" placeholder="Crea Date">
+                        <label class="profile-title">Ngày sản xuất</label>
+                        <div class="controls input-group">
+                            <input class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="book.releaseDate" is-open="popup2.opened" popup-placement="top" datepicker-options="" close-text="Close">
+                            <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-md" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                               </span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Ngày đăng sách</label>
+                        <div class="controls input-group">
+                            <input class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="CreateDate" is-open="popup1.opened" popup-placement="top" datepicker-options="" close-text="Close">
+                            <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-md" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                               </span>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger" ng-disabled="postForm.$invalid">Submit</button>
+                    <a href="#admin" class="btn btn-default">Trở về</a>
                 </form>
             </div>
         </div>

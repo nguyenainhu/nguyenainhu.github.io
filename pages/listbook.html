@@ -1,22 +1,36 @@
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="card card-form ">
-
+<div class="container pageAc">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="section-header">
+                <div>Admin</div>
+            </div>
+            <div class="section-body">
+                <div class="panel-body">
+                    <ul class="nav">
+                        <li><a href="#/admin/addbook">Thêm sách</a></li>
+                        <li><a href="#/admin">Quản lý sách</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="section-header">
+                <div>Quản lý sách</div>
+            </div>
+            <div class="section-body">
                 <div class="list-books" ng-init="getBooks()">
-                    <div class="card-title">Books</div>
                     <table class="table table-bordered table-hover">
                         <tr>
-                            <th class="col-xs-1">STT</th>
-                            <th class="col-xs-9">Title</th>
+                            <th class="col-xs-1 list-title">STT</th>
+                            <th class="col-xs-9 list-title">Title</th>
                             <th class="col-xs-1"></th>
                             <th class="col-xs-1"></th>
                         </tr>
                         <tr ng-repeat="book in books">
-                            <td class="col-xs-1">{{$index+1}}</td>
-                            <td class="col-xs-9">{{book.title }}</td>
-                            <td class="col-xs-1"><a href="#/admin/editbook/{{book._id}}" type="button" class="btn btn-success btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
-                            <td class="col-xs-1"><button type="button" class="btn btn-danger btn-xs" ng-click="removeBook(book._id)"><i class="fa fa-trash-o"></i></button></td>
+                            <td class="col-xs-1 list-title">{{$index+1}}</td>
+                            <td class="col-xs-9 list-title">{{book.title }}</td>
+                            <td class="col-xs-1"><a href="#/admin/editbook/{{book._id}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o"></i></a></td>
+                            <td class="col-xs-1"><button type="button" class="btn btn-danger btn-sm" ng-click="removeBook(book._id)"><i class="fa fa-trash-o"></i></button></td>
                         </tr>
                     </table>
 
@@ -25,4 +39,8 @@
 
         </div>
     </div>
+</div>
+
+</div>
+</div>
 </div>
