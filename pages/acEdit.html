@@ -2,6 +2,12 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="panel-profile">
+                <div class="profile text-center">
+                    <div class="profile-userpic">
+                        <img ng-src="{{user.avatarUrl}}" class="img-circle img-raised img-responsive user-img" alt="">
+                    </div>
+                    <h4 class="user-name text-center">{{user.name}}</h4>
+                </div>
             </div>
             <div class="section-body">
                 <div class="panel-body">
@@ -9,7 +15,7 @@
                         <li><a href="#/customer/account/edit">Thông tin tài khoản</a></li>
                         <li><a href="#/sales/order">Quản lý đơn hàng</a></li>
                         <li><a href="#/customer/wishlist">Sản phẩm yêu thích</a></li>
-                        <li><a href="">Thoát tài khoản</a></li>
+                        <li><a href="" ng-click="logOut()">Thoát tài khoản</a></li>
                     </ul>
                 </div>
             </div>
@@ -19,7 +25,7 @@
                 <div>Thông tin tài khoản</div>
             </div>
             <div class="section-body">
-                <form name="acEdit" class="form form-vertical" ng-submit="updateUsers()">
+                <form name="acEdit" class="form form-vertical" ng-submit="updateUsers()" novalidate>
                     <div class="control-group">
                         <label class="profile-title">Họ tên:</label>
                         <div class="controls">
@@ -27,15 +33,24 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Current Password</label>
+                        <label class="profile-title">Password:</label>
                         <div class="controls">
-                            <input type="password" class="form-control" ng-model="user.currentPassword" ng-required="true" placeholder="Enter Title">
+                            <input type="password" name="passwordcurrent" ng-model="user.currentPassword" class="form-control " minlength="5" placeholder="Password" ng-required="true">
+                            <p ng-show="acEdit.passwordcurrent.$invalid && !acEdit.passwordcurrent.$pristine" class="text-danger"> Password không hợp lệ - Ít nhất 5 ký tự</p>
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="profile-title">Password</label>
+                        <label class="profile-title">Password mới:</label>
                         <div class="controls">
-                            <input type="password" class="form-control" ng-model="user.password" ng-required="true" placeholder="Enter Title">
+                            <input type="password" name="password" ng-model="user.password" class="form-control " minlength="5" placeholder="Password mới" ng-required="true">
+                            <p ng-show="acEdit.password.$invalid && !acEdit.password.$pristine" class="text-danger"> Password không hợp lệ - Ít nhất 5 ký tự</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Nhập lại password:</label>
+                        <div class="controls">
+                            <input type="password" name="passwordConfirm" ng-model="passwordConfirm" compare-to="user.password" class="form-control " placeholder="Nhập lại password" ng-required="true">
+                            <p ng-show="acEdit.passwordConfirm.$invalid && !acEdit.passwordConfirm.$pristine" class="text-danger"> Password không trùng</p>
                         </div>
                     </div>
                     <div class="control-group">

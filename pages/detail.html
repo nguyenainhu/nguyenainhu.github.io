@@ -19,45 +19,58 @@
                 </div>
                 <div class="col-sm-8">
                     <h3 class="detail-title">{{book.title}}</h3>
-                    <!--<span>Rating</span>-->
+                    <span uib-rating ng-model="rateAvr" max="max" read-only="true" on-hover="hoveringOver(value)"></span>
                     <div class="detail-author">Tác giả: <a href="">{{book.author}}</a></div>
                     <h5 class="text-danger"><del>{{book.previousPrice|currency:"$":0}} </del> </h5>
                     <h5 class="detail-author">{{book.sellingPrice|currency:"$":0}}</h5>
                     <p class="detail-author"> Tiết kiệm :{{book.previousPrice-book.sellingPrice|currency:"$":0}}</p>
                     <h5 class="detail-author">Giới thiệu: </h5>
-                    <div class="short-description" ng-model="book.shortDescription" ta-bind="text"></div>
+                    <div style="text-align:justify">
+                        <div class="short-description" ng-model="book.shortDescription" ta-bind="text"></div>
+                    </div>
+                    <h5 class="detail-author">Số lượng: </h5>
+                    <div class="col-sm-8 form-detail">
+                        <input class="form-control" type="number" min="1" ng-model="qty">
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-danger " ng-click="addCart(book) "><i class="fa fa-shopping-cart "></i> Mua hàng</button>
+                    </div>
                 </div>
             </div>
             </br>
-            <div class="row section-body">
+            <div class="row section-body page-detail">
                 <div class="col-sm-6">
+                    <div class="title-detail">Mô tả chi tiết </div>
+                    <div style="text-align:justify">
+                        <div class="short-description" ng-model="book.fullDescription" ta-bind="text"></div>
+                    </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="card-title">Thông tin chi tiết</div>
-                    <table class="table table-striped table-responsive">
+                    <div class="title-detail">Thông tin chi tiết</div>
+                    <table class="table table-bordered table table-striped table-responsive">
                         <tr>
-                            <th class="col-xs-2">SKU</th>
-                            <td class="col-xs-10">{{book.sku}}</td>
+                            <th class="col-xs-4 titleBill">SKU</th>
+                            <td class="col-xs-8 table-detail">{{book.sku}}</td>
                         </tr>
                         <tr>
-                            <th class="col-xs-2"> Nhà xuất bản</th>
-                            <td lass="col-xs-10">{{book.publisher}}</td>
+                            <th class="col-xs-4 titleBill"> Nhà xuất bản</th>
+                            <td class="col-xs-8 table-detail">{{book.publisher}}</td>
                         </tr>
                         <tr>
-                            <th class="col-xs-2"> Trọng lượng </th>
-                            <td lass="col-xs-10"> {{book.weight}} <span ng-show="book.weight"> g</span> </td>
+                            <th class="col-xs-4 titleBill"> Trọng lượng </th>
+                            <td class="col-xs-8 table-detail"> {{book.weight}} <span ng-show="book.weight"> g</span> </td>
                         </tr>
                         <tr>
-                            <th class="col-xs-2"> Kích thước</th>
-                            <td lass="col-xs-10"> {{book.size.width}}<span ng-show="book.size.width"> x </span> {{book.size.depth}} </td>
+                            <th class="col-xs-4 titleBill"> Kích thước</th>
+                            <td class="col-xs-8 table-detail"> {{book.size.width}}<span ng-show="book.size.width"> x </span> {{book.size.depth}} </td>
                         </tr>
                         <tr>
-                            <th class="col-xs-2"> Số trang</th>
-                            <td lass="col-xs-10"> {{book.pages}}</td>
+                            <th class="col-xs-4 titleBill"> Số trang</th>
+                            <td class="col-xs-8 table-detail"> {{book.pages}}</td>
                         </tr>
                         <tr>
-                            <th class="col-xs-2"> Ngày xuất bản</th>
-                            <td lass="col-xs-10"> {{book.releaseDate|date:"dd/MM/yyyy"}}</td>
+                            <th class="col-xs-4 titleBill"> Ngày xuất bản</th>
+                            <td class="col-xs-8 table-detail"> {{book.releaseDate|date:"dd/MM/yyyy"}}</td>
                         </tr>
                     </table>
                 </div>
@@ -82,12 +95,13 @@
                     </div>
                 </div>
                 <div class="comment">
-                    <label for="">Rate</label>
+                    <label class="titleBill">Rate</label>
                     <span uib-rating ng-model="comment.rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" class="rate"></span>
                     <div class="form-group">
-                        <label for="">Comment:</label>
+                        <label class="titleBill">Comment:</label>
                         <textarea class="form-control" rows="3" ng-model="comment.commentBody"></textarea>
-                        </br><button class="btn btn-danger btn-comment" type="button" ng-click="comment.commentBody.length>0&&comment.rate>0?addComment(book):''">Submit</button>
+                        </br><button class="btn btn-danger btn-comment" type="button" ng-click="comment.commentBody.length>0&&comment.rate>0?addComment(book):''">Đăng</button>
                     </div>
                 </div>
             </div>
+        </div>

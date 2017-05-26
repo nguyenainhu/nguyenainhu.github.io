@@ -57,6 +57,10 @@ myApp.config(function($routeProvider) {
             controller: 'bookCtrl',
             templateUrl: 'pages/orders.html'
         })
+        .when('/contacts', {
+            controller: 'bookCtrl',
+            templateUrl: 'pages/contacts.html'
+        })
         .otherwise({
             templateUrl: 'pages/home.html'
         });

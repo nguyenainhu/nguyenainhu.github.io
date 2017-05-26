@@ -33,7 +33,25 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
         var id = $routeParams.id;
         $http.get(root + '/api/books/' + id).success(function(response) {
             $scope.book = response;
+            var rateTotal = 0;
+            var rateLength = 0;
+            for (var i = 0; i < $scope.book.comments.length; i++) {
+                if ($scope.book.comments[i].hasOwnProperty('rate')) {
+                    rateTotal += $scope.book.comments[i].rate
+                    rateLength += 1
+                }
+
+            }
+            if (rateTotal == 0) {
+                $scope.rateAvr = 4
+            } else {
+                $scope.rateAvr = rateTotal / rateLength;
+            }
+            $scope.save = Math.round((($scope.book.previousPrice - $scope.book.sellingPrice) / $scope.book.previousPrice) * 100);
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
         });
+
     }
 
     $scope.addBook = function() {
@@ -119,6 +137,7 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
     $scope.logOut = function() {
         $cookieStore.remove('token');
         $cookieStore.remove('user');
+        $location.url("/");
     }
 
     $scope.viewProfile = function() {
@@ -189,9 +208,6 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
     };
     //
     /*--------Cart ---------*/
-
-
-
     $scope.qty = 1;
     $scope.total = 0;
 
@@ -309,15 +325,16 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
     ];
     /*update users*/
     $scope.updateUsers = function() {
-            $scope.updateUser = $scope.user;
-            $http.put(root + '/api/users/', $scope.updateUser).success(function(response) {
-                $scope.user = response;
-                $cookieStore.put('user', response.user);
-                $scope.user = $cookieStore.get('user');
-                window.location.href = '#/books/';
-            });
-        }
-        /*get order*/
+        $scope.updateUser = $scope.user;
+        $http.put(root + '/api/users/', $scope.updateUser).success(function(response) {
+            $scope.user = response;
+            $cookieStore.put('user', response.user);
+            $scope.user = $cookieStore.get('user');
+            window.location.href = '#/books/';
+        });
+    }
+
+    /*get order*/
     $scope.getOrder = function() {
             $http.get(root + '/api/orders').success(function(response) {
                 $scope.orders = response;

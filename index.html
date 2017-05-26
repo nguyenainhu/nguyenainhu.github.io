@@ -37,9 +37,7 @@
                 <div class="collapse navbar-collapse " id="myNavbar">
                     <ul class="nav navbar-nav ">
                         <li><a href="#/ ">TRANG CHỦ</a></li>
-                        <li><a href="# ">GIỚI THIỆU</a></li>
-                        <li><a href="# ">LIÊN HỆ</a></li>
-                        <li><a href="#/admin ">ADD BOOK</a></li>
+                        <li><a href="#/contacts">LIÊN HỆ</a></li>
                         <form class="navbar-form navbar-right " role="search" ng-submit="submitSearch()">>
                             <div class="input-group ">
                                 <input type="text " ng-model="text" class="form-control search-text " placeholder="Tìm kiếm ">
@@ -93,11 +91,11 @@
                                     <div class="modal-body ">
                                         <form ng-submit="summitLogin()" method="post ">
                                             <div class="outer-input ">
-                                                <label><i class="glyphicon glyphicon-user "></i>Email</label></br>
+                                                <label><i class="glyphicon glyphicon-user "></i> Email</label></br>
                                                 <input ng-model="loginUser.email" class="style-input " type="text " name="username" />
                                             </div>
                                             <div class="outer-input ">
-                                                <label><i class="glyphicon glyphicon-lock "></i>Password</label></br>
+                                                <label><i class="glyphicon glyphicon-lock "></i> Password</label></br>
                                                 <input ng-model="loginUser.password" class="style-input" type="password" />
                                             </div>
                                             <button class="login" type="submit">Đăng nhập</button>
@@ -122,21 +120,20 @@
                     <button class="close " type="button " data-dismiss="modal"><span>x</span></button>
                 </div>
                 <div class="modal-body ">
-                    <form ng-submit="summitSignup()" method="post" class="form-signup">
+                    <form ng-submit="summitSignup()" method="post" class="form-signup" name="signup" novalidate>
                         <div class="form-group">
-                            <input ng-model="signUpUser.name" type="text" name="name" class="form-control" placeholder="Name">
+                            <input ng-model="signUpUser.name" ng-required="true" type="text" class="form-control" placeholder="Tên người dùng">
                         </div>
                         <div class="form-group">
-                            <input ng-model="signUpUser.email" type="email" name="email" class="form-control " placeholder="Email Address">
+                            <input ng-model="signUpUser.email" ng-required="true" type="email" class="form-control " placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="display_name" class="form-control " placeholder="Mobile No.">
+                            <input ng-model="signUpUser.password" ng-required="true" type="password" class="form-control " placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <input ng-model="signUpUser.password" type="password" name="password" class="form-control " placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <input ng-model="signUpUser.password" type="password" name="password_confirmation" class="form-control " placeholder="Confirm Password">
+
+                            <input type="password" class="form-control " placeholder="Confirm Password" ng-model="confirmpass" ng-required="true" name="passwordConfirm" compare-to="signUpUser.password">
+                            <p ng-show="signup.passwordConfirm.$invalid && !signup.passwordConfirm.$pristine" class="text-danger"> Password không trùng</p>
                         </div>
                         <div class="form-group">
                             <input ng-model="signUpUser.avatarUrl" type="text" name="avatarUrl" class="form-control " placeholder="Avatar Url">
@@ -147,14 +144,14 @@
                                    I agree
                                 </label>
                         </div>
-                        <button class="login " type="submit ">SINGUP</button>
-                        <button class="create" data-toggle="modal" data-target="#myModal1">REGISTER</a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--endCreate-->
+                        <button class="login" type="submit ">Đăng ký</button>
+                        <button class="create" data-toggle="modal" data-target="#modalSigin" data-dismiss="modal">Quay lại</a>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--endCreate-->
     <!--End menu-->
     <div ng-view></div>
     <!--Footer-->

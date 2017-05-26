@@ -114,7 +114,7 @@ span {
 }
 
 .login {
-    float: left;
+    float: right;
     width: 180px;
     height: 58px;
     background-color: #444444;
@@ -125,7 +125,7 @@ span {
 }
 
 .create {
-    float: right;
+    float: left;
     width: 180px;
     height: 58px;
     background-color: #444444;
@@ -227,6 +227,20 @@ ul.dropdown-user li .item {
 .dropdown-menu>li>a:hover {
     background-image: none;
     background-color: #50597B;
+}
+
+.user-name {
+    color: white;
+    font-weight: 500;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+}
+
+.img-circle {
+    border: 3px solid white;
 }
 
 
@@ -750,7 +764,7 @@ input[type=submit] {
 
 .panel-profile {
     background-color: #20243F;
-    height: 150px;
+    height: 170px;
 }
 
 .profile-title {
@@ -777,6 +791,16 @@ input[type=submit] {
 
 .pageAc {
     padding-bottom: 25px;
+}
+
+.profile {
+    padding: 20px;
+}
+
+.profile-userpic {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
 }
 
 
@@ -871,6 +895,30 @@ input[type=submit] {
 .btn-comment {
     margin-left: 0px;
     margin-bottom: 0px;
+}
+
+.form-detail {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.page-detail {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.title-detail {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.table-detail {
+    float: right;
+    color: white;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #50597B;
 }
 
 
@@ -1031,4 +1079,25 @@ th.total {
 
 .user-order {
     padding: 15px;
+}
+
+
+/*contacts*/
+
+.title-contact {
+    color: white;
+    font-size: 18px;
+}
+
+.contact {
+    padding: 15px;
+    margin-top: 0px;
+}
+
+.title-contact2 {
+    color: greenyellow;
+}
+
+.form-contact {
+    width: 425px;
 }
