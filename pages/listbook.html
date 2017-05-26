@@ -9,6 +9,7 @@
                     <ul class="nav">
                         <li><a href="#/admin/addbook">Thêm sách</a></li>
                         <li><a href="#/admin">Quản lý sách</a></li>
+                        <li><a href="#/admin/orders">Đơn hàng</a></li>
                     </ul>
                 </div>
             </div>
@@ -30,10 +31,30 @@
                             <td class="col-xs-1 list-title">{{$index+1}}</td>
                             <td class="col-xs-9 list-title">{{book.title }}</td>
                             <td class="col-xs-1"><a href="#/admin/editbook/{{book._id}}" type="button" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o"></i></a></td>
-                            <td class="col-xs-1"><button type="button" class="btn btn-danger btn-sm" ng-click="removeBook(book._id)"><i class="fa fa-trash-o"></i></button></td>
+                            <td class="col-xs-1">
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#{{book._id}}"><i class="fa fa-trash-o "></i></button>
+                                <div class="modal fade " id="{{book._id}}" role="dialog ">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content delete-confirm">
+                                            <div class="model-header ">
+                                                <button type="button " class="close " data-dismiss="modal"><span class="glyphicon glyphicon-remove dismiss "></span></button>
+                                                <h4 class="delete-title ">Xác nhận</h4>
+                                            </div>
+                                            <div class="modal-body ">
+                                                <p>Bạn có chắc muốn xóa ?</p>
+                                            </div>
+                                            <div class="modal-footer ">
+                                                <button type="button " class="btn btn-danger pull-left " data-dismiss="modal " ng-click="removeBook(book._id) ">Xóa</button>
+                                                <button type="button " class="btn btn-default pull-right " data-dismiss="modal">Hủy</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+
                         </tr>
                     </table>
-
                 </div>
             </div>
 

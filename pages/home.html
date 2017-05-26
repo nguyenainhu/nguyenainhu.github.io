@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                </br>
+
                 <div class="timeline" ng-show="books.length>0">
                     <div class="section-header">
                         <div>SÁCH BÁN CHẠY</div>
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer">
-                                        <button class="btn btn-primary btn-buy"><span class="glyphicon glyphicon-shopping-cart"></span><span> Mua</span></button>
+                                        <button class="btn btn-primary btn-buy" ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart"></span><span> Mua</span></button>
                                         <button class="btn btn-danger btn-fa"><span class="glyphicon glyphicon-heart"></span></button>
                                     </div>
                                 </div>

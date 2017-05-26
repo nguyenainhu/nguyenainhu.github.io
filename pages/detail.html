@@ -25,9 +25,69 @@
                     <h5 class="detail-author">{{book.sellingPrice|currency:"$":0}}</h5>
                     <p class="detail-author"> Tiết kiệm :{{book.previousPrice-book.sellingPrice|currency:"$":0}}</p>
                     <h5 class="detail-author">Giới thiệu: </h5>
-                    <div class="full-description" ng-model="book.fullDescription" ta-bind="text"></div>
+                    <div class="short-description" ng-model="book.shortDescription" ta-bind="text"></div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            </br>
+            <div class="row section-body">
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <div class="card-title">Thông tin chi tiết</div>
+                    <table class="table table-striped table-responsive">
+                        <tr>
+                            <th class="col-xs-2">SKU</th>
+                            <td class="col-xs-10">{{book.sku}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-2"> Nhà xuất bản</th>
+                            <td lass="col-xs-10">{{book.publisher}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-2"> Trọng lượng </th>
+                            <td lass="col-xs-10"> {{book.weight}} <span ng-show="book.weight"> g</span> </td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-2"> Kích thước</th>
+                            <td lass="col-xs-10"> {{book.size.width}}<span ng-show="book.size.width"> x </span> {{book.size.depth}} </td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-2"> Số trang</th>
+                            <td lass="col-xs-10"> {{book.pages}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-xs-2"> Ngày xuất bản</th>
+                            <td lass="col-xs-10"> {{book.releaseDate|date:"dd/MM/yyyy"}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </br>
+            <div class="row section-body">
+                <div class="reviews" ng-repeat="comment in book.comments|orderBy: 'createdOn' :true">
+                    <div class="media" ng-init="">
+                        <div class="col-sm-1">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img class="img-responsive img-circle img-raised " ng-src="{{comment._user.avatarUrl}}" alt="...">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-11 text-left">
+                            <h5 class="media-heading">{{comment._user.name}}</h5>
+                            <span uib-rating ng-model="comment.rate" max="max" read-only="true" class="rating"></span>
+                            <span>-<small> {{comment.createdDate|date:'dd/ MM/ yyyy h:mma'}}</small></span>
+                            <h5>{{comment.commentBody}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <label for="">Rate</label>
+                    <span uib-rating ng-model="comment.rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" class="rate"></span>
+                    <div class="form-group">
+                        <label for="">Comment:</label>
+                        <textarea class="form-control" rows="3" ng-model="comment.commentBody"></textarea>
+                        </br><button class="btn btn-danger btn-comment" type="button" ng-click="comment.commentBody.length>0&&comment.rate>0?addComment(book):''">Submit</button>
+                    </div>
+                </div>
+            </div>

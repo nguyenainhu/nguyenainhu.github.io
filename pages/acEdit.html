@@ -19,59 +19,78 @@
                 <div>Thông tin tài khoản</div>
             </div>
             <div class="section-body">
-                <form name="acEdit" class="form form-vertical" ng-submit="">
+                <form name="acEdit" class="form form-vertical" ng-submit="updateUsers()">
                     <div class="control-group">
                         <label class="profile-title">Họ tên:</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="users.userName" ng-required="true" placeholder="Enter Title" name="title">
+                            <input type="text" class="form-control" ng-model="user.name" ng-required="true" placeholder="Enter Title">
                         </div>
                     </div>
                     <div class="control-group">
+                        <label class="profile-title">Current Password</label>
+                        <div class="controls">
+                            <input type="password" class="form-control" ng-model="user.currentPassword" ng-required="true" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Password</label>
+                        <div class="controls">
+                            <input type="password" class="form-control" ng-model="user.password" ng-required="true" placeholder="Enter Title">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="profile-title">Avatar</label>
+                        <div class="controls">
+                            <input type="text" class="form-control" ng-model="user.avatarUrl" ng-required="true" placeholder="Enter Title">
+                        </div>
+                    </div>
+
+                    <!--<div class="control-group">
                         <label class="profile-title">Email:</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="users.userEmail" ng-required="true" placeholder="Enter Title" name="title">
+                            <input type="text" class="form-control" ng-model="user.userEmail" placeholder="Enter Title">
                         </div>
-                    </div>
-                    <div class="control-group">
+                    </div>-->
+                    <!--<div class="control-group">
                         <label class="profile-title">Giới tính</label>
                         <div class="controls">
-                            <input type="radio" name="users" value="Nữ" ng-model="users.userSex" /><span> Nữ</span>
-                            <input type="radio" name="users" value="Nam" ng-model="users.userSex" /><span> Nam</span>
+                            <input type="radio" value="Nữ" ng-model="users.userSex" /><span> Nữ</span>
+                            <input type="radio" value="Nam" ng-model="users.userSex" /><span> Nam</span>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="profile-title">Địa chỉ:</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="users.userHome" ng-required="true" placeholder="Enter Title" name="title">
+                            <input type="text" class="form-control" ng-model="users.userHome" ng-required="true" placeholder="Enter Title">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="profile-title">Số điện thoại:</label>
                         <div class="controls">
-                            <input type="text" class="form-control" ng-model="users.userPhone" ng-required="true" name="users">
+                            <input type="text" class="form-control" ng-model="users.userPhone" ng-required="true" >
                         </div>
-                    </div>
-                    <label class="profile-title"><input type="checkbox" ng-model="checked">  Thay đổi mật khẩu</label>
+                    </div>-->
+                    <!--<label class="profile-title"><input type="checkbox" ng-model="checked">  Thay đổi mật khẩu</label>
                     <div ng-show="checked">
                         <div class="control-group">
                             <label class="profile-title">Mật khẩu cũ:</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                                <input type="text" class="form-control" ng-required="true" ng-model="user.password" placeholder="Enter Title">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="profile-title">Mật khẩu mới:</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="profile-title">Nhập lại</label>
                             <div class="controls">
-                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title" name="title">
+                                <input type="text" class="form-control" ng-required="true" placeholder="Enter Title">
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     </br>
                     <button type="submit" class="btn btn-danger">Cập nhật</button>
                 </form>

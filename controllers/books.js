@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('bookCtrl', ['$scope', '$http', '$location', '$routeParams', '$cookieStore', function($scope, $http, $location, $routeParams, $cookieStore) {
+myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$routeParams', '$cookieStore', function($scope, $http, bookservice, $location, $routeParams, $cookieStore) {
     console.log('bookCtrl loaded...');
 
     var root = 'https://green-web-bookstore.herokuapp.com';
@@ -72,6 +72,12 @@ myApp.controller('bookCtrl', ['$scope', '$http', '$location', '$routeParams', '$
         var id = $routeParams.id;
         $http.get(root + '/api/books/genre/' + id).success(function(response) {
             $scope.books = response;
+            $scope.genreName = '';
+            for (var i = 0; i < $scope.genres.length; i++) {
+                if ($scope.genres[i]._id === id) {
+                    $scope.genreName = $scope.genres[i].name;
+                }
+            }
         });
     }
     $scope.getGenres();
@@ -123,7 +129,7 @@ myApp.controller('bookCtrl', ['$scope', '$http', '$location', '$routeParams', '$
     }
 
     $scope.summitLogin = function() {
-        $http.post(root + '/api/auth', $scope.loginUser).success(function(response) {
+        $http.post(root + '/api/users/auth', $scope.loginUser).success(function(response) {
             var isSuccess = response.success;
             if (isSuccess) {
                 $cookieStore.put('token', response.token);
@@ -142,7 +148,7 @@ myApp.controller('bookCtrl', ['$scope', '$http', '$location', '$routeParams', '$
     }
 
     $scope.summitSignup = function() {
-        $http.post(root + '/api/signup/', $scope.signUpUser).success(function(response) {
+        $http.post(root + '/api/users/signup/', $scope.signUpUser).success(function(response) {
             var isSuccess = response.success;
             if (isSuccess) {
                 $cookieStore.put('token', response.token);
@@ -182,6 +188,154 @@ myApp.controller('bookCtrl', ['$scope', '$http', '$location', '$routeParams', '$
         opened: false
     };
     //
+    /*--------Cart ---------*/
 
 
+
+    $scope.qty = 1;
+    $scope.total = 0;
+
+    $scope.sum = function() {
+        bookservice.total.totalQty = 0;
+        for (var i = 0; i < bookservice.cart.length; i++) {
+            $scope.total += bookservice.cart[i].item.sellingPrice * bookservice.cart[i].qty;
+            bookservice.total.totalQty += bookservice.cart[i].qty;
+        }
+        $scope.all = bookservice.total;
+
+    }
+    $scope.sum();
+    $scope.addCart = function(item) {
+        if (bookservice.cart.length > 0) {
+            for (var i = 0; i < bookservice.cart.length; i++) {
+                if (bookservice.cart[i].item.sku === item.sku) {
+                    $scope.addedItem = true;
+                    bookservice.cart[i].qty += $scope.qty;
+                    bookservice.item[i].qty += $scope.qty;
+                }
+
+
+            }
+            if ($scope.addedItem) {
+                $scope.addedItem = false;
+
+            } else {
+                bookservice.cart.push({ item, qty: 1 });
+                bookservice.item.push({ item, qty: 1 });
+            }
+        } else {
+            bookservice.cart.push({ item, qty: $scope.qty });
+            bookservice.item.push({ item, qty: $scope.qty });
+        }
+
+
+    }
+    $scope.cart = bookservice.cart;
+    $scope.removeCart = function(item) {
+        console.log(item.qty)
+
+        bookservice.cart.splice(item, 1);
+        bookservice.item.splice(item, 1);
+        $scope.total = 0;
+        $scope.sum();
+    }
+
+    /*order user*/
+    $scope.order = {};
+    $scope.order.books = [];
+    $scope.checkout = function() {
+        if ($scope.cart.length > 0) {
+
+            $scope.order._user = $scope.user._id;
+            $scope.order.books = bookservice.item;
+            $scope.order.total = $scope.total;
+            // bookservice.bills.push($scope.order);
+            console.log($scope.order)
+
+            $http.post(root + '/api/orders', $scope.order).success(function(response) {
+                console.log('success');
+                bookservice.item = [];
+                bookservice.cart.splice(0, bookservice.cart.length);
+                $scope.total = 0;
+                $location.url("/")
+            }).error(function(data, status, headers, config) {
+                console.log(data, status, headers, config);
+            });
+
+
+
+        }
+    }
+
+    $scope.changeQty = function(index) {
+        bookservice.item[index].qty = bookservice.cart[index].qty;
+        $scope.total = 0;
+        $scope.sum();
+    }
+    $scope.bills = bookservice.bills;
+
+    $scope.removeCart = function(item) {
+        console.log(item.qty)
+
+        bookservice.cart.splice(item, 1);
+        bookservice.item.splice(item, 1);
+        $scope.total = 0;
+        $scope.sum();
+
+    }
+
+    /*add comment*/
+
+    $scope.addComment = function(post) {
+            $scope.comment.userId = $scope.user._id;
+            $scope.comment.bookId = post._id;
+            $scope.createdDate = Date.now();
+            console.log($scope.comment);
+            $http.post(root + '/api/books/comment', $scope.comment).success(function(response) {
+                window.location.href = '#/books/{{book._id}}';
+            }).error(function(data, status, headers, config) {
+                console.log(data, status, headers, config);
+            });
+            console.log(post);
+        }
+        /*rating*/
+    $scope.max = 5;
+    $scope.isReadonly = false;
+    $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+    };
+    $scope.ratingStates = [
+        { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' }
+    ];
+    /*update users*/
+    $scope.updateUsers = function() {
+            $scope.updateUser = $scope.user;
+            $http.put(root + '/api/users/', $scope.updateUser).success(function(response) {
+                $scope.user = response;
+                $cookieStore.put('user', response.user);
+                $scope.user = $cookieStore.get('user');
+                window.location.href = '#/books/';
+            });
+        }
+        /*get order*/
+    $scope.getOrder = function() {
+            $http.get(root + '/api/orders').success(function(response) {
+                $scope.orders = response;
+
+            }).error(function(data, status, headers, config) {
+                console.log(data, status, headers, config);
+            });
+
+        }
+        /*get order of user*/
+    $scope.getUserOder = function() {
+        console.log(root + '/api/orders/user/' + $scope.user._id)
+        $http.get(root + '/api/orders/user/' + $scope.user._id).success(function(response) {
+            $scope.orders = response;
+            console.log($scope.orders)
+
+        }).error(function(data, status, headers, config) {
+            console.log(data, status, headers, config);
+        });
+    }
 }]);

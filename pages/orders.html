@@ -1,29 +1,30 @@
-<div class="container pageAc">
+<div class="container pageAc" ng-init="getOrder()">
     <div class="row">
         <div class="col-sm-3">
-            <div class="panel-profile">
+            <div class="section-header">
+                <div>Admin</div>
             </div>
             <div class="section-body">
                 <div class="panel-body">
                     <ul class="nav">
-                        <li><a href="#/customer/account/edit">Thông tin tài khoản</a></li>
-                        <li><a href="#/sales/order">Quản lý đơn hàng</a></li>
-                        <li><a href="#/customer/wishlist">Sản phẩm yêu thích</a></li>
-                        <li><a href="">Thoát tài khoản</a></li>
+                        <li><a href="#/admin/addbook">Thêm sách</a></li>
+                        <li><a href="#/admin">Quản lý sách</a></li>
+                        <li><a href="#/admin/orders">Đơn hàng</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" ng-init="getUserOder()">
+        <div class="col-sm-9">
             <div class="section-header">
                 <div>Quản lý đơn hàng</div>
             </div>
-            <div class="section-body user-order">
+            <div class="section-body orders">
                 <div ng-repeat="order in orders">
                     <table class="table table-bordered table-hover text-center ">
+                        <caption>Khách hàng {{order._user.name}}</caption>
                         <thead>
                             <tr>
-                                <th class=" ">Tên sản phẩm</th>
+                                <th class="">Tên sản phẩm</th>
                                 <th class="">Đơn giá</th>
                                 <th class="">Số lượng</th>
                                 <th class="">Thành tiền</th>
@@ -46,8 +47,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    </br>
                 </div>
             </div>
         </div>
     </div>
+</div>

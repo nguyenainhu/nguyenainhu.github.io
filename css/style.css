@@ -11,7 +11,6 @@ body {
 }
 
 .navbar {
-    margin-bottom: 50px;
     border-radius: 0;
     border: 0;
 }
@@ -27,8 +26,11 @@ body {
 
 .navbar-inverse .navbar-nav>li>a {
     color: white;
-    padding-left: 25px;
     font-weight: bold;
+}
+
+ul.nav.navbar-nav {
+    margin-bottom: -15px;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -84,7 +86,6 @@ button.close {
 
 span {
     border: 0;
-    color: white;
     text-align: center;
 }
 
@@ -198,6 +199,14 @@ ul.dropdown-cart li .item-right button {
 .navbar-inverse .navbar-nav>.open>a:focus,
 .navbar-inverse .navbar-nav>.open>a:hover {
     background-color: #50597B;
+}
+
+ul.dropdown-cart li .item-left img {
+    width: 50px;
+}
+
+.color {
+    color: white;
 }
 
 
@@ -817,6 +826,53 @@ input[type=submit] {
 
 .detail-price {}
 
+.short-description {
+    color: white;
+    font-size: 14px;
+}
+
+.reviews {
+    background-color: white;
+    color: black;
+    margin: 20px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    padding-top: 15px;
+}
+
+.rating {
+    color: black;
+}
+
+.rate>span {
+    outline: none;
+}
+
+.glyphicon-star {
+    color: #fbc02d;
+}
+
+.media-heading {
+    font-weight: bold;
+}
+
+.text-left {
+    padding-top: 10px;
+}
+
+.comment {
+    color: black;
+    padding: 25px;
+}
+
+.btn-comment {
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
 
 /*paging*/
 
@@ -836,6 +892,7 @@ input[type=submit] {
     height: 150px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-left: 100px;
 }
 
 .delete-title {
@@ -852,4 +909,126 @@ div#modalSingin {
 
 body.ng-scope.modal-open {
     overflow: auto;
+    padding-right: 0px!important;
+}
+
+
+/*bill*/
+
+.imgBill {
+    width: 100px;
+    height: 147px;
+    text-align: center;
+}
+
+.titleBill {
+    color: white;
+}
+
+.priceBill {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.table-bill {
+    margin-top: 15px;
+}
+
+.pageBill {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.btnBill {
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+.panel-bill {
+    padding-top: 15px;
+}
+
+.price-bill-total {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    float: right;
+}
+
+.box-bill {
+    border-bottom: 0.5px solid gray;
+}
+
+
+/*genre*/
+
+.title-genre {
+    color: white;
+    text-align: center;
+    padding-left: 40px;
+    padding-bottom: 0px;
+    padding-right: 40px;
+    padding-top: 40px;
+    font-size: 20px;
+}
+
+.title-genre1 {
+    color: white;
+    text-align: center;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
+    font-size: 20px;
+}
+
+
+/*orders*/
+
+caption.ng-binding {
+    color: greenyellow;
+}
+
+.table>caption+thead>tr:first-child>th {
+    color: white;
+    font-weight: 400;
+}
+
+td.priceBill.ng-binding {
+    padding-top: 15px;
+}
+
+.orders {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+th.total {
+    color: white;
+    font-weight: 400;
+    padding-top: 15px;
+}
+
+.priceTotal {
+    color: greenyellow;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title-order {
+    font-size: 16px;
+    color: white;
+}
+
+
+/*user order*/
+
+.user-order {
+    padding: 15px;
 }

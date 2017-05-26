@@ -1,0 +1,77 @@
+<div class="container pageAc" ng-show="cart.length>0">
+    <div class="row">
+        <div class="section-header">
+            <div>Giỏ hàng </div>
+        </div>
+        <div class="row section-body pageBill">
+            <div class="col-sm-9">
+                <table class="table table-bordered table-hover rwd-table table-bill ">
+
+                    <thead>
+                        <tr>
+                            <th class="hidden-xs"></th>
+                            <th class=" ">Tên sách</th>
+                            <th class="">Đơn giá</th>
+                            <th class="">Số lượng</th>
+                            <th class="">Thành tiền</th>
+                            <th class=""></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in cart">
+                            <td class="hidden-xs">
+                                <div class="imgBill"><img ng-src="{{item.item.images.main}}" alt="" class="img-responsive hidden-xs" /></div>
+                            </td>
+                            <td class="titleBill" data-th="Tên sách">
+                                <h4>{{item.item.title}} </h4>
+                            </td>
+                            <td data-th="Đơn giá">
+                                <p class="priceBill">{{item.item.sellingPrice|currency:"$":0}}</p>
+                            </td>
+                            <td class="" data-th="Số lượng"><input type="number" ng-model="item.qty" min="1" class="form-control" ng-change="changeQty($index)"></td>
+                            <td data-th="Thành tiền">
+                                <p class="priceBill">{{item.item.sellingPrice*item.qty| currency:"$":0}}</p>
+                            </td>
+                            <td class="removecart"><button class="btn btn-danger btn-sm btnBill" ng-click='removeCart($index)'><i class="fa fa-trash-o"></i></button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-3 panel-bill">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="box-bill">
+                            <h5>Tạm tính: <span class="price-bill-total">{{total|currency:"$":0}}</span></h5>
+                            <h5>Giảm giá: <span class="price-bill-total">0</span></h5>
+                        </div>
+                        <h5>Thành tiền: <span class="price-bill-total">{{total|currency:"$":0}}</span></h5>
+                    </div>
+                    <div class="panel-footer">
+
+                        <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#modalSigin" ng-click="isLogged()? checkout():''">Đặt hàng</button>
+                    </div>
+                </div>
+                <!--<div class="panel">
+                    <div class="panel-heading">
+                        <h5>Tạm tính: <span class="price-bill-total">{{total|currency:"$":0}}</span></h5>
+                    </div>
+                    <div class="panel-body">
+                        <h5>Tổng cộng: <span class="price">{{total|currency:"$":0}}</span></h5>
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-danger btn-md" data-toggle="modal" data-target="#modalSigin" ng-click="isLogged()? checkout():''">Đặt hàng</button>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+<div class="container pageAc" ng-hide="cart.length>0">
+    <div class="col-sm-12 section-body text-center">
+        <h3 class="titleBill"> Không có sản phẩm nào trong giỏ hàng </h3>
+        <a href="#/" class="titleBill"><button class="btn btn-success">Tiếp tục mua hàng</button></a>
+    </div>
+</div>
