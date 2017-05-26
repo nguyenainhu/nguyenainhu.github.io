@@ -156,7 +156,8 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
                 $scope.user = $cookieStore.get('user');
                 $scope.token = $cookieStore.get('token');
                 //Redirect here
-                $location.url("/")
+                $location.url("/");
+                $scope.loginUser = {};
             } else {
                 //Raise Error
                 alert(response.message);

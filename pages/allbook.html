@@ -1,0 +1,51 @@
+<div class="container pageAc" ng-controller="bookCtrl" ng-init="getBooks()">
+    <div class="row">
+        <div class="col-sm-3">
+            <div ng-show="genres.length>0">
+                <div class="section-header">DANH MỤC</div>
+                <div class="section-body">
+                    <div class="panel-body">
+                        <a href="#/allbook" class="nav"><span class="allbook">Tất cả sách<span></a>
+                        <ul ng-repeat="genre in genres" class="nav">
+                            <li><a href="#/books/genre/{{genre._id}}">{{genre.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="section-header">
+                <div>Tất cả sách</div>
+            </div>
+            <div class="section-body">
+                <div class="row section-body box-product">
+                    </br>
+                    <div class="row">
+                        <div ng-repeat="book in books" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <a href="#/books/detail/{{book._id}}" title="{{book.shortDescription}}"><img ng-src="{{book.images.main}}" class="img-responsive book-thumbnail"></a>
+                                    <br>
+                                    <div class="book-name"><a href="#/books/detail/{{book._id}}"><strong>{{book.title}}</strong></a></div>
+                                    <p class="pre-price"><strong>{{book.previousPrice|number}} đ</strong></p>
+                                    <p class="price"><strong>{{book.sellingPrice|number}} đ</strong></p>
+                                    <div class="rating">
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary btn-buy" ng-click="addCart(book)"><span class="glyphicon glyphicon-shopping-cart"></span><span> Mua</span></button>
+                                    <button class="btn btn-danger btn-fa"><span class="glyphicon glyphicon-heart"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
