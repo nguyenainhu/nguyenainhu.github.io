@@ -1111,3 +1111,21 @@ button.btn-default.btn-sm {
     margin-left: 0px;
     margin-bottom: 0px;
 }
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 2000;
+    background: #f1e7ac;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    margin: auto;
+}

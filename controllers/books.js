@@ -2,8 +2,14 @@ var myApp = angular.module('myApp');
 
 myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$routeParams', '$cookieStore', function($scope, $http, bookservice, $location, $routeParams, $cookieStore) {
     console.log('bookCtrl loaded...');
-
     var root = 'https://green-web-bookstore.herokuapp.com';
+    var config = {
+        headers: {
+            'Accept': 'application/json;odata=verbose',
+            "x-access-token": $scope.token
+        }
+    }
+    $scope.loaded = false;
     $scope.getBooks = function() {
         $http.get(root + '/api/books').success(function(response) {
             $scope.books = response;
@@ -26,6 +32,7 @@ myApp.controller('bookCtrl', ['$scope', '$http', 'bookservice', '$location', '$r
     $scope.getGenres = function() {
         $http.get(root + '/api/genres').success(function(response) {
             $scope.genres = response;
+            $scope.loaded = true;
         });
     }
 

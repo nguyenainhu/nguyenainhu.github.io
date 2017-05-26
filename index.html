@@ -22,6 +22,12 @@
 </head>
 
 <body ng-app="myApp" ng-controller="bookCtrl" ng-init="getGenres() ; init();loadLogin()">
+    <div class="loading" ng-hide="loaded">
+        <div class="loader">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/187dec15944987.562991ce68d78.gif">
+        </div>
+
+    </div>
     <!--Menu-->
     <nav class=" navbar navbar-inverse ">
         <div class="container-fluid ">
